@@ -56,7 +56,7 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function Register() {
+export default function Register({ useLog }) {
   const smUp = useResponsive('up', 'sm');
 
   const mdUp = useResponsive('up', 'md');
@@ -95,7 +95,7 @@ export default function Register() {
 
             {/* <AuthSocial /> */}
 
-            <RegisterForm />
+            <RegisterForm useLog={useLog} />
 
             <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
               By registering, I agree to&nbsp;

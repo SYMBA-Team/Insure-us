@@ -24,6 +24,21 @@ const Api = createApi({
         body,
       }),
     }),
+    cSignIn: builder.mutation({
+      query: ({ body }) => ({
+        url: '/cAuth/signin',
+        method: 'POST',
+        body,
+      }),
+    }),
+    /* Sign Up / Register */
+    cSignUp: builder.mutation({
+      query: ({ body }) => ({
+        url: '/cAuth/signup',
+        method: 'POST',
+        body,
+      }),
+    }),
     /* Log out */
     logOut: builder.mutation({
       query: () => ({
@@ -49,5 +64,7 @@ export const {
   useLogOutMutation,
   useGetUserDataMutation,
   useEditUserMutation,
+  useCSignInMutation,
+  useCSignUpMutation,
 } = Api;
 export default Api;

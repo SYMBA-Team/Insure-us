@@ -56,7 +56,7 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function Login() {
+export default function Login({ useLog }) {
   const smUp = useResponsive('up', 'sm');
 
   const mdUp = useResponsive('up', 'md');
@@ -96,7 +96,7 @@ export default function Login() {
 
             {/* <AuthSocial /> */}
 
-            <LoginForm />
+            <LoginForm useLog={useLog} />
 
             {!smUp && (
               <Typography variant="body2" align="center" sx={{ mt: 3 }}>

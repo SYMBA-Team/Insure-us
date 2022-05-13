@@ -20,18 +20,13 @@ export default function App() {
       .unwrap()
       .then((user) => {
         Notify({
-          title: `Welcome back ${user.userName}`,
+          title: `Welcome back ${user.firstName}`,
           description: 'Please check our latest Activities !',
           type: 'success',
         });
         setUser(user);
       })
       .catch(() => {
-        Notify({
-          title: 'You are not signed in',
-          description: 'Please sign in to be able to access the dashboard',
-          type: 'warning',
-        });
         removeUser();
       });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
