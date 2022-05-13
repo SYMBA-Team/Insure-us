@@ -1,0 +1,23 @@
+.Client {
+  .Card {
+    background-color: rgba(49, 88, 7, 0.8);
+    background-image: url('/images/cover.jpg');
+    background-blend-mode: overlay;
+    margin-bottom: 2rem;
+    .Profile {
+      margin-top: 12rem;
+      margin-left: 2rem;
+      margin-bottom: -4rem;
+      display: flex;
+      .text {
+        margin-left: 2rem;
+      }
+    }
+    .Tabs {
+      background-color: white;
+      padding-top: 3rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
