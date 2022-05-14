@@ -8,6 +8,8 @@ export default function Home() {
   return(
     <div>
   <Container>
+    <h1>Hi sofian !</h1>
+    <p className='text'>Saturday 14 May</p>
     <Card className={style.card}>
       <div className={style.header}><h2>Health State</h2><h2>56%</h2></div>
       <AppWebsiteVisitsSimple
@@ -26,13 +28,15 @@ export default function Home() {
                 '10/01/2003',
                 '11/01/2003',
               ]}
-             
+              options={{yaxis:{labels:{style:{colors:['#ffffff'],}}},xaxis:{type: 'datetime' ,labels:{style:{colors:['#ffffff'],}}},
+              colors:['#ffffff'], fill:{opacity:0.2,type:'solid',colors:['#ffffff'],},
+            }}
               chartData={[
                 
                 {
                   
                   type: 'area',
-                  fill: 'gradient',
+                  fill: 'solid',
                   data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
                 },
                 {
@@ -43,7 +47,7 @@ export default function Home() {
                 },
               ]}
               height={250}
-          
+           
               
             />
       </Card>
@@ -51,7 +55,7 @@ export default function Home() {
       <div className={style.slider}>
      
          <Card className={style.squarcard}>
-      <div className={style.header}><h2>Daily steps</h2></div>
+      <div className={style.header}><h3>Daily steps</h3></div>
       <AppWebsiteVisitsSimple
       className={style.radial}
       chartLabels={[
@@ -69,12 +73,12 @@ export default function Home() {
             ]}
              
               height={350}
-              type={'radialBar'}
+              
               
             />
       </Card>
       <Card className={style.squarcard}>
-      <div className={style.header}><h2>Daily steps</h2></div>
+      <div className={style.header}><h3>Daily steps</h3> <img src="" alt="" /></div>
       <AppWebsiteVisitsSimple
       className={style.radial}
       chartLabels={[
@@ -90,21 +94,34 @@ export default function Home() {
         '10/01/2003',
         '11/01/2003',
       ]}
+      options={{  colors:['#ffffff'], fill:{type:'solid',colors:['#1A73E8']},plotOptions: {
+        bar: {
+          borderRadius: 1,
+          columnWidth: '50%',
+        }
+      },legend:{show:false},xaxis:{
+        labels:{show:false}
+    },yaxis:{
+      labels:{show:false}
+  }}
+       
+      }
            chartData={[
                 
             {
                   
               type: 'bar',
               fill: 'solid',
-              data: [44, 55, 41, 67, 22, 43, 21, 33, 45, 31, 87, 65, 35]
+              data: [50,52,44,60,65,70,75,68,44,60,65,70,75]
             }
             
             ]}
-             
-              height={120}
+           
+              height={90}
          
               
             />
+            <p className='desc'>6h 32min</p>
       </Card>
       <Card className={style.squarcard}>
       <div className={style.header}><h2>Daily steps</h2></div>
@@ -113,6 +130,7 @@ export default function Home() {
       chartLabels={[
         
       ]}
+   
            chartData={[
                 
             {
@@ -123,7 +141,15 @@ export default function Home() {
             }
             
             ]}
-             
+             options={{yaxis:{
+              labels:{show:false}},
+              plotOptions: { 
+            
+              radialBar: {
+               hollow: {
+                 size: '70%',
+              }
+            },}}}
               height={350}
              
               
