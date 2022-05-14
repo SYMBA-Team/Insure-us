@@ -54,6 +54,10 @@ const Api = createApi({
     editUser: builder.mutation({
       query: (body) => ({ url: '/user', method: 'PUT', body }),
     }),
+    /* Terra Data */
+    syncTerra: builder.mutation({
+      query: () => ({ url: '/terra/sync', method: 'GET' }),
+    }),
   }),
 });
 
@@ -66,5 +70,7 @@ export const {
   useEditUserMutation,
   useCSignInMutation,
   useCSignUpMutation,
+  // terra
+  useSyncTerraMutation,
 } = Api;
 export default Api;

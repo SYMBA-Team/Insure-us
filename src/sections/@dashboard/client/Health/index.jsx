@@ -1,9 +1,10 @@
 import { Card, Grid, Typography } from '@mui/material';
+import ReactApexChart from 'react-apexcharts';
 import { useTheme } from '@mui/material/styles';
 import style from './style.module.scss';
 import AppWebsiteVisits from '../../app/AppWebsiteVisits';
 import img from '../../../../images/person.svg';
-import { AppCurrentSubject } from '../../app';
+import { AppConversionRates } from '../../app';
 
 const data = {
   oxygen_data: {
@@ -268,7 +269,27 @@ const bodyDetails = [
   ['40%', 'Water'],
   ['7h 30m', 'Sleep'],
 ];
-
+const state = {
+  series: [9000, 1000],
+  options: {
+    chart: {
+      type: 'donut',
+    },
+    responsive: [
+      {
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200,
+          },
+          legend: {
+            position: 'bottom',
+          },
+        },
+      },
+    ],
+  },
+};
 export default function Health() {
   const theme = useTheme();
   return (
@@ -322,21 +343,30 @@ export default function Health() {
             </Grid>
           </Grid>
         </Card>
+        <Card className={style.Details}>
+          <Typography variant="h4">His Body</Typography>
+          <ReactApexChart options={state.options} series={state.series} type="donut" />
+        </Card>
       </Grid>
       <Grid item xs={6}>
-        <Card className={style.Details}>
-          <Typography variant="h4">Heart beats</Typography>
-          <Grid container alignItems="flex-end">
-            {Object.keys(data.heart_rate_data.summary).map((key, i) => (
-              <Grid xs={12} key={`d${i}`}>
-                <Typography variant={'body'}>
-                  <strong>{key}</strong>
-                </Typography>
-                <Typography variant={'body2'}>{data.heart_rate_data.summary[key]}</Typography>
-              </Grid>
-            ))}
-          </Grid>
-        </Card>
+        <AppConversionRates
+          title="Heart Rates"
+          subheader=""
+          chartData={Object.keys(data.heart_rate_data.summary).map((key) => ({
+            label: key,
+            value: data.heart_rate_data.summary[key],
+          }))}
+        />
+      </Grid>
+      <Grid item xs={6}>
+        <AppConversionRates
+          title="Heart Rates"
+          subheader=""
+          chartData={Object.keys(data.heart_rate_data.summary).map((key) => ({
+            label: key,
+            value: data.heart_rate_data.summary[key],
+          }))}
+        />
       </Grid>
     </Grid>
   );

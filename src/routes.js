@@ -33,7 +33,8 @@ export default function Router() {
     },
     {
       path: '/mobile',
-      element: user ? <MobileLayout /> : <Navigate to="/clogin" />,
+      // eslint-disable-next-line no-nested-ternary
+      element: user ? user.syncId ? <MobileLayout /> : <Navigate to="/sync" /> : <Navigate to="/clogin" />,
       children: [
         { path: 'home', element: <Home /> },
         { path: 'fitness', element: <Fitness /> },
@@ -48,10 +49,16 @@ export default function Router() {
       children: [
         { path: '/', element: <Navigate to="/dashboard" /> },
         { path: '/mobile', element: <Navigate to="/mobile/home" /> },
-        { path: 'login', element: user ? <Navigate to="/dashboard" /> : <Login useLog={useSignInMutation} /> },
-        { path: 'register', element: user ? <Navigate to="/dashboard" /> : <Register useLog={useSignUpMutation} /> },
-        { path: 'clogin', element: user ? <Navigate to="/mobile" /> : <Login useLog={useCSignInMutation} /> },
-        { path: 'cregister', element: user ? <Navigate to="/mobile" /> : <Register useLog={useCSignUpMutation} /> },
+        { path: 'login', element: user ? <Navigate to="/dashboard/app" /> : <Login useLog={useSignInMutation} /> },
+        {
+          path: 'register',
+          element: user ? <Navigate to="/dashboard/app" /> : <Register useLog={useSignUpMutation} />,
+        },
+        { path: 'clogin', element: user ? <Navigate to="/mobile/home" /> : <Login useLog={useCSignInMutation} /> },
+        {
+          path: 'cregister',
+          element: user ? <Navigate to="/mobile/home" /> : <Register useLog={useCSignUpMutation} />,
+        },
         { path: '404', element: <NotFound /> },
         { path: '*', element: <Navigate to="/404" /> },
       ],
