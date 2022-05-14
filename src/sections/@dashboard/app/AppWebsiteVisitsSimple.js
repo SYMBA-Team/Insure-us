@@ -8,14 +8,14 @@ import { BaseOptionChart } from '../../../components/chart';
 
 // ----------------------------------------------------------------------
 
-AppWebsiteVisits.propTypes = {
+AppWebsiteVisitsSimple.propTypes = {
   title: PropTypes.string,
   subheader: PropTypes.string,
   chartData: PropTypes.array.isRequired,
   chartLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default function AppWebsiteVisits({ title, subheader,type="line", chartLabels, chartData,height=364, ...other }) {
+export default function AppWebsiteVisitsSimple({ title, subheader,type="line", chartLabels, chartData,height=364, ...other }) {
   const chartOptions = merge(BaseOptionChart(), {
     name:'',
     plotOptions: { 
@@ -28,7 +28,9 @@ export default function AppWebsiteVisits({ title, subheader,type="line", chartLa
     fill: { type: chartData.map((i) => i.fill) },
     labels: chartLabels,
     
-   
+   yaxis:{
+       labels:{show:false}
+   },
     xaxis: { type: 'datetime' },
     tooltip: {
       shared: true,
@@ -45,11 +47,8 @@ export default function AppWebsiteVisits({ title, subheader,type="line", chartLa
   });
 
   return (
-    <Card {...other}>
-      <CardHeader title={title} subheader={subheader} />
-      <Box sx={{ p: 3, pb: 1 }} dir="ltr">
+    
         <ReactApexChart type={type} series={chartData} options={chartOptions} height={height} />
-      </Box>
-    </Card>
+    
   );
 }
