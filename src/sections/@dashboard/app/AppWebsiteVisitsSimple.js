@@ -15,23 +15,16 @@ AppWebsiteVisitsSimple.propTypes = {
   chartLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default function AppWebsiteVisitsSimple({ title, subheader,type="line", chartLabels, chartData,height=364, ...other }) {
+export default function AppWebsiteVisitsSimple({ title, subheader,options, chartLabels, chartData,height=364, ...other }) {
   const chartOptions = merge(BaseOptionChart(), {
     name:'',
-    plotOptions: { 
-      bar: { columnWidth: '16%' },
-      radialBar: {
-       hollow: {
-         size: '70%',
-      }
-    }, },
+   
+  
     fill: { type: chartData.map((i) => i.fill) },
     labels: chartLabels,
     
-   yaxis:{
-       labels:{show:false}
-   },
-    xaxis: { type: 'datetime' },
+    ...options,
+  
     tooltip: {
       shared: true,
       intersect: false,
@@ -45,10 +38,10 @@ export default function AppWebsiteVisitsSimple({ title, subheader,type="line", c
       },
     },
   });
-
+ 
   return (
     
-        <ReactApexChart type={type} series={chartData} options={chartOptions} height={height} />
+        <ReactApexChart type={"line"} series={chartData} options={chartOptions} height={height} />
     
   );
 }
