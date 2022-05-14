@@ -9,15 +9,18 @@
     .Dates{
         align-items: center;
         flex: content;
+        color: #4C97E1;
+        ;
+        height: 500px;
         display: flex;
     }
 
     .Day{
-        
+        color :aliceblue;
     }
 
     .TheDate{
-
+          color :aliceblue;
 
     }
 
@@ -32,7 +35,7 @@
         align-items: center;
         display: flex;
         flex:center;
-
+        background-color: #4C97E1;
     }
 
 }

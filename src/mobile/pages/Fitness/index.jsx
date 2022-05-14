@@ -14,7 +14,7 @@ export default function Fitness() {
 
     {/* This is the first title : "today" */}
     <div className={style.Header}>
-    <h5>Today</h5>
+    <h5>Fitness</h5>
     </div>
     
     {/* These are the dates */}
@@ -23,8 +23,47 @@ export default function Fitness() {
     <Grid item xs={2} className={style.Date}>
       <Card className={style.Card}>
         <p className={style.Day}>Mon</p>
-
+        <AppWebsiteVisitsSimple
+      className={style.radial}
+      chartLabels={[
+        
+      ]}
+           chartData={[
+                
+            {
+                  
+              type: 'radialBar',
+              fill: 'solid',
+              data: [90],
+            }
+            
+            ]}
+             
+              height={50}
+              width={50}
+              
+            />
+        
         <p className={style.TheDate}>12</p>
+        <AppWebsiteVisitsSimple
+      className={style.radial}
+      chartLabels={[
+        
+      ]}
+           chartData={[
+                
+            {
+                  
+              type: 'radialBar',
+              fill: 'solid',
+              data: [70],
+            }
+            
+            ]}
+             
+              height={50}
+              
+            />
       </Card>
      </Grid>
 
