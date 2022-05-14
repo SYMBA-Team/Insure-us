@@ -14,6 +14,7 @@ import Client from './pages/Client';
 import Home from './mobile/pages/Home';
 import Fitness from './mobile/pages/Fitness';
 import Personal from './mobile/pages/Personal';
+import Synced from './mobile/pages/Synced';
 import { useSignUpMutation, useSignInMutation, useCSignInMutation, useCSignUpMutation } from './app/backend';
 // ----------------------------------------------------------------------
 
@@ -48,7 +49,8 @@ export default function Router() {
       element: <LogoOnlyLayout />,
       children: [
         { path: '/', element: <Navigate to="/dashboard" /> },
-        { path: '/mobile', element: <Navigate to="/mobile/home" /> },
+        { path: 'mobile', element: <Navigate to="/mobile/home" /> },
+        { path: 'synced', element: user ? <Synced /> : <Navigate to="/login" /> },
         { path: 'login', element: user ? <Navigate to="/dashboard/app" /> : <Login useLog={useSignInMutation} /> },
         {
           path: 'register',
