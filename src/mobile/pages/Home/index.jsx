@@ -125,7 +125,7 @@ export default function Home() {
             ]}
              
               height={350}
-              type={'radialBar'}
+             
               
             />
       </Card>
