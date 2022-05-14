@@ -35,7 +35,8 @@ export default function Router() {
     {
       path: '/mobile',
       // eslint-disable-next-line no-nested-ternary
-      element: user ? user.syncId ? <MobileLayout /> : <Navigate to="/sync" /> : <Navigate to="/clogin" />,
+      element: user ? <MobileLayout /> : <Navigate to="/clogin" />,
+      //element: user ? user.syncId ? <MobileLayout /> : <Navigate to="/sync" /> : <Navigate to="/clogin" />,
       children: [
         { path: 'home', element: <Home /> },
         { path: 'fitness', element: <Fitness /> },
